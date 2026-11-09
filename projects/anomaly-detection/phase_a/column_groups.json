@@ -1,0 +1,86 @@
+{
+  "targets": {
+    "columns": [
+      "plant_pu"
+    ],
+    "role": "label: normalised plant active power"
+  },
+  "features_weather": {
+    "columns": [
+      "temp_c",
+      "irr_wm2",
+      "mod_temp_c",
+      "precip_mmh",
+      "rh_pct",
+      "wdir_deg",
+      "wspd_ms",
+      "wind_u",
+      "wind_v"
+    ],
+    "role": "OBSERVED weather (same time step)"
+  },
+  "arrays": {
+    "columns": [
+      "arr1",
+      "arr2",
+      "arr3",
+      "arr4",
+      "arr5",
+      "arr6",
+      "arr7",
+      "arr8",
+      "arr9",
+      "arr10",
+      "arr11",
+      "arr12",
+      "arr13",
+      "arr14"
+    ],
+    "role": "same-step outcomes per array: anomaly evidence only, NOT features"
+  },
+  "data_quality_flags": {
+    "columns": [
+      "solar_elev_deg",
+      "is_night",
+      "is_day",
+      "rule_wspd_gt_40",
+      "rule_temp_sensor_episode",
+      "rule_modt_stuck",
+      "rule_irr_fault_window",
+      "rule_irr_gt_1400",
+      "wdir_wrapped",
+      "irr_offset_applied_wm2",
+      "orig_temp_c",
+      "orig_irr_wm2",
+      "orig_mod_temp_c",
+      "orig_wspd_ms",
+      "wx_all_missing_raw",
+      "wx_imputed_count",
+      "wx_unfilled_any",
+      "wx_complete",
+      "wx_complete_ex_irr",
+      "cand_plant_zero_daytime",
+      "array_outage_count",
+      "array_outage_arr1",
+      "array_outage_arr2",
+      "array_outage_arr3",
+      "array_outage_arr4",
+      "array_outage_arr5",
+      "array_outage_arr6",
+      "array_outage_arr7",
+      "array_outage_arr8",
+      "array_outage_arr9",
+      "array_outage_arr10",
+      "array_outage_arr11",
+      "array_outage_arr12",
+      "array_outage_arr13",
+      "array_outage_arr14",
+      "split",
+      "in_purge_zone",
+      "is_warmup",
+      "scoreable_plant",
+      "scoreable_plant_with_weather"
+    ],
+    "role": "flags, masks, original values, split labels"
+  }
+}

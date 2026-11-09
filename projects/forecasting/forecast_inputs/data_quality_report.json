@@ -1,0 +1,281 @@
+{
+  "candidates": {
+    "array_outage_rows": {
+      "arr1": 1337,
+      "arr10": 269,
+      "arr11": 279,
+      "arr12": 137,
+      "arr13": 171,
+      "arr14": 125,
+      "arr2": 147,
+      "arr3": 2683,
+      "arr4": 670,
+      "arr5": 382,
+      "arr6": 255,
+      "arr7": 356,
+      "arr8": 309,
+      "arr9": 338
+    },
+    "naive_rule_rows_for_comparison": 10180,
+    "plant_zero_daytime_rows": 322
+  },
+  "environment": {
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "platform": "Linux-6.18.44-fc-v153-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "seed": 42
+  },
+  "events_summary": {
+    "array_outage": 271,
+    "irradiance_offset": 1,
+    "irradiance_sensor_fault": 3,
+    "module_temp_stuck": 1,
+    "plant_zero_daytime": 49,
+    "temp_sensor_episode": 1,
+    "weather_all_missing": 24,
+    "weather_partial_missing": 7
+  },
+  "geometry_evidence_violations": {
+    "38.0": {
+      "-60.0": 6997,
+      "-15.0": 364,
+      "-7.5": 324,
+      "0.0": 336,
+      "7.5": 401,
+      "15.0": 619,
+      "60.0": 9973
+    },
+    "40.5": {
+      "-60.0": 6690,
+      "-15.0": 371,
+      "-7.5": 319,
+      "0.0": 329,
+      "7.5": 460,
+      "15.0": 651,
+      "60.0": 9595
+    },
+    "42.0": {
+      "-60.0": 6531,
+      "-15.0": 392,
+      "-7.5": 329,
+      "0.0": 376,
+      "7.5": 485,
+      "15.0": 849,
+      "60.0": 9397
+    }
+  },
+  "input_sha256": {
+    "Array_Power.csv": "3d766780a4b0f43b4a108f7dd0a772f52ccfb98471d5154f81d94dafbeb53b10",
+    "Plant_Active_Power.csv": "0b4626aa7414fec08ba7260e6c94881881772dcd15d07b13b9a17f92f103863a",
+    "Weather_Data.csv": "4a8d05585867ddf9b731075ee73c75d3cae8acb7b2db10077a5de4577bb01a10"
+  },
+  "irradiance_fault_windows_utc_days": [
+    [
+      "2020-05-06",
+      "2020-05-06"
+    ],
+    [
+      "2021-12-04",
+      "2022-02-22"
+    ],
+    [
+      "2023-10-12",
+      "2023-12-31"
+    ]
+  ],
+  "irradiance_offset": {
+    "first_utc": "2022-08-21 00:00:00+00:00",
+    "last_utc": "2023-10-11 23:45:00+00:00",
+    "method": "causal: median of the previous 7 daily night medians",
+    "rows_corrected": 40032
+  },
+  "limitations": [
+    "Site latitude/longitude are approximations; only used for the day/night masks.",
+    "Plant-zero and array-outage candidates are proxies (curtailment or maintenance can also cause zeros), not verified labels.",
+    "Observed weather is not a forecast; using it without lags overstates 24-48h accuracy.",
+    "The irradiance offset estimate is causal but lags 3-4 days at its onset and is not applied inside fault windows (irradiance is NaN there).",
+    "Thresholds were chosen after inspecting the full dataset, including the 2023 test year.",
+    "Test year 2023 has no valid irradiance from 2023-10-12 onwards."
+  ],
+  "night_irradiance_median_after_correction": {
+    "2015": 0.0,
+    "2016": 0.0,
+    "2017": 0.0,
+    "2018": 0.0,
+    "2019": 0.0,
+    "2020": 0.0,
+    "2021": 0.0,
+    "2022": 0.0,
+    "2023": 0.0
+  },
+  "original_headers": {
+    "arrays": [
+      "Timestamp",
+      "Normalised Power - Array 1",
+      "Normalised Power - Array 2",
+      "Normalised Power - Array 3",
+      "Normalised Power - Array 4",
+      "Normalised Power - Array 5",
+      "Normalised Power - Array 6",
+      "Normalised Power - Array 7",
+      "Normalised Power - Array 8",
+      "Normalised Power - Array 9",
+      "Normalised Power - Array 10",
+      "Normalised Power - Array 11",
+      "Normalised Power - Array 12",
+      "Normalised Power - Array 13",
+      "Normalised Power - Array 14"
+    ],
+    "plant": [
+      "Timestamp",
+      "Plant Active Power"
+    ],
+    "weather": [
+      "Timestamp",
+      "Average ambient air temperature \u00a9",
+      "Average Irradiance (W*m^-2)",
+      "Average module temperature (C)",
+      "Average precipitation (mm/h)",
+      "Average relative humidity (%)",
+      "Average wind direction (degrees)",
+      "Average wind speed (m*s^-1)"
+    ]
+  },
+  "output_sha256": {
+    "column_groups.json": "3fd1cd8df68e000ec7a8d545f74a490101a448375636452546d2ef74a69090b5",
+    "events.csv": "6d7f042a8a274a50e8f20ee341f5706d21f534f676cc1729c6cbb0b33feaefdf",
+    "feature_availability.json": "77fefeb75846e28bc6dd225e1ff9f835ee1ed05bce1838144eeb1b098e11512e",
+    "scaler_params.json": "58d9174f3949d3b05d947a4aa245420ffc83a2a3be2d967e94c349d62fbc85df",
+    "splits.json": "a571d5922ce00835f7284b62265ef10c57befd7490c0f4fe506c86d9fb927921",
+    "test_arrays.csv.gz": "818534c03155c7b203620d801e2298521038d3b0000487b8b078a8d3e4c64947",
+    "test_data_quality_flags.csv.gz": "e54fa7f0820e835cd1389fa39eddada57e4e9633d5c927d886aaf2514c01eda6",
+    "test_features_weather.csv.gz": "e9d4c7c302739af21100233c696ab93e7f1fa95e11637b57212f9ef3a2862db4",
+    "test_targets.csv.gz": "6ff635de65ab734a940d48bb3d3445dd367dfe4f8456376351be8837b1e73ead",
+    "train_arrays.csv.gz": "019e38fd46c4128ba9748f605a0d802b85f3f4d8d6c27dbadf16f13794bf9f0b",
+    "train_data_quality_flags.csv.gz": "a62c2660c0cd82f08ad00596790864c31df9c96bb5fbf6053996d5fd560a9a59",
+    "train_features_weather.csv.gz": "f361202d4207428342ae5c4b5486042868d026a9291f4d351671440e2ef7fa08",
+    "train_targets.csv.gz": "f1c175ffe1d289ddc830db7f4e374d4a55ce91c8cddb670779149956c4176f00",
+    "val_arrays.csv.gz": "50c46343bd79a94c91f8ef5d929c076e1d967b712af1b054aebd24ff61980c65",
+    "val_data_quality_flags.csv.gz": "895619bb69a1275da71b4abc87095e76d7d59847eb5de286de4173236b2c9a87",
+    "val_features_weather.csv.gz": "483217bd59b367387a5466307fac86fa05ba89fbb070d114d17d745e2d991d47",
+    "val_targets.csv.gz": "a4dfd8431f7f25b574c83cf37dcf123b3bc51be3367de865651c5732036d91e0"
+  },
+  "output_sha256_note": "data_quality_report.json is excluded because it contains these hashes.",
+  "raw_audit": [
+    {
+      "column": "temp_c",
+      "max": 41.479,
+      "min": -39.118,
+      "null_%": 1.73,
+      "nulls": 4844
+    },
+    {
+      "column": "irr_wm2",
+      "max": 1177.137,
+      "min": 0.0,
+      "null_%": 1.74,
+      "nulls": 4869
+    },
+    {
+      "column": "mod_temp_c",
+      "max": 69.998,
+      "min": -13.392,
+      "null_%": 1.71,
+      "nulls": 4796
+    },
+    {
+      "column": "precip_mmh",
+      "max": 13.025,
+      "min": 0.0,
+      "null_%": 1.78,
+      "nulls": 4990
+    },
+    {
+      "column": "rh_pct",
+      "max": 99.86,
+      "min": 8.999,
+      "null_%": 1.95,
+      "nulls": 5468
+    },
+    {
+      "column": "wdir_deg",
+      "max": 401.598,
+      "min": 26.105,
+      "null_%": 1.94,
+      "nulls": 5452
+    },
+    {
+      "column": "wspd_ms",
+      "max": 89.035,
+      "min": 0.0,
+      "null_%": 1.94,
+      "nulls": 5447
+    },
+    {
+      "column": "plant_pu",
+      "max": 0.918,
+      "min": 0.0,
+      "null_%": 0.0,
+      "nulls": 0
+    }
+  ],
+  "rule_hits": {
+    "irr_fault_window": 15591,
+    "irr_gt_1400": 0,
+    "modt_stuck": 60,
+    "temp_sensor_episode": 326,
+    "wdir_wrapped_mod360": 1597,
+    "wspd_gt_40": 2
+  },
+  "site_assumption": {
+    "lat": 40.5,
+    "lon": 21.8,
+    "note": "approximate; longitude inferred from solar-noon timing, latitude has little effect on the night mask (38-42N tested)"
+  },
+  "temp_sensor_episode": {
+    "end_utc_exclusive": "2022-03-26 00:00:00+00:00",
+    "start_utc": "2022-03-22 14:30:00+00:00"
+  },
+  "time_reconstruction": {
+    "duplicated_naive_stamps": 32,
+    "fall_back_repeats": 8,
+    "first_utc": "2015-12-31 22:15:00+00:00",
+    "last_utc": "2023-12-31 22:00:00+00:00",
+    "local_match_ratio": 1.0,
+    "local_tz": "Europe/Athens",
+    "method": "UTC rebuilt from row order (each row = +15 min); validated against the original wall-clock stamps",
+    "rows": 280512,
+    "spring_forward_jumps": 8,
+    "stamp_semantics": "interval END (weak evidence, effect is only 7.5 min and does not matter for the day/night masks)"
+  },
+  "time_split": {
+    "bounds": {
+      "test": {
+        "end": "2023-12-31 22:00:00+00:00",
+        "rows": 35033,
+        "start": "2023-01-01 00:00:00+00:00"
+      },
+      "train": {
+        "end": "2021-12-31 23:45:00+00:00",
+        "rows": 210439,
+        "start": "2015-12-31 22:15:00+00:00"
+      },
+      "val": {
+        "end": "2022-12-31 23:45:00+00:00",
+        "rows": 35040,
+        "start": "2022-01-01 00:00:00+00:00"
+      }
+    },
+    "purge_rows": 192,
+    "timezone": "UTC",
+    "warmup_rows": 1344
+  },
+  "weather_missing": {
+    "all_missing_rows_raw": 4794,
+    "ffill_limit_rows": 4,
+    "imputed_values": 921,
+    "irradiance_ffill_limit_rows": 2,
+    "rows_still_incomplete": 21109
+  }
+}

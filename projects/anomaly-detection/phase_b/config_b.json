@@ -1,0 +1,87 @@
+{
+ "seed_base": 42,
+ "net_seeds": [
+  42,
+  43,
+  44
+ ],
+ "versions": {
+  "python": "3.12.3",
+  "pandas": "3.0.2",
+  "numpy": "2.4.4",
+  "torch": "2.14.1+cu130",
+  "lightgbm": "4.7.0",
+  "platform": "Linux-6.18.44-fc-v153-x86_64-with-glibc2.39"
+ },
+ "threads": 1,
+ "deterministic_torch": true,
+ "gbm_library": "lightgbm",
+ "gbm_fallback_used": false,
+ "environment_notes": "lightgbm and torch were not preinstalled and were installed with pip; torch is the CUDA build running on CPU (cuda available: False); LightGBM 4.7.0 emits a deprecation warning for the eval_set argument (no effect on results).",
+ "gbm_params": {
+  "objective": "regression",
+  "learning_rate": 0.05,
+  "num_leaves_grid": [
+   15,
+   31,
+   63
+  ],
+  "min_data_in_leaf": 100,
+  "feature_fraction": 1.0,
+  "n_estimators": 2000,
+  "early_stopping_rounds": 50,
+  "random_state": 42,
+  "deterministic": true,
+  "force_row_wise": true,
+  "n_jobs": 1
+ },
+ "net_architecture": {
+  "encoder": "8-32-16-4 (ReLU, dropout 0.15 after first)",
+  "decoder": "4-16-32-8",
+  "head": "4-8-1"
+ },
+ "net_training": {
+  "optimizer": "Adam",
+  "lr": 0.001,
+  "batch_size": 512,
+  "max_epochs": 50,
+  "patience": 5,
+  "early_stopping_metric": "val pred MSE (clean val, scaled)",
+  "lambdas": {
+   "ae": {
+    "recon": 1,
+    "pred": 5
+   },
+   "mlp": {
+    "recon": 0,
+    "pred": 5
+   }
+  }
+ },
+ "features": [
+  "irr_wm2",
+  "temp_c",
+  "mod_temp_c",
+  "solar_elev_deg",
+  "hour_sin",
+  "hour_cos",
+  "doy_sin",
+  "doy_cos"
+ ],
+ "target": "plant_pu",
+ "scaler": "scaler_clean.json: (x - median) / scale",
+ "train_rows": "clean==1 only",
+ "early_stopping_rows": "clean val",
+ "r2_std": "ddof=1 over 3 seeds",
+ "constant_predictor": {
+  "value_pu": 0.4345,
+  "source": "median of target in clean train"
+ },
+ "input_sha256": {
+  "phase_a/dataset_summary.json": "4bc2f8ffbe311d640a93a8e92db2c2383e491717e8bc54d1c55d5f294932b0ec",
+  "phase_a/scaler_clean.json": "1da983f9433960d5118282a168d8f6d993c0bd012d2760cf0959fa09fbc6f1c5",
+  "phase_a/table_test.csv.gz": "1f1b531ee1b92499499c5b0a94e32908f9cd30708e34e644dde4bd813f0255c6",
+  "phase_a/table_train.csv.gz": "a0b696a99ecbe48de95c4b1393b5b8697f0506d4b46542537f3c4f8913024a9e",
+  "phase_a/table_val.csv.gz": "51761d7bca4fb33163873def85d78f3062fb3a31b646bbd09e8d9592716dec27"
+ }
+}

@@ -1,0 +1,13 @@
+{
+  "task": "F3 LightGBM same-day CSI forecasting",
+  "horizons": [4, 8, 16, 24],
+  "seeds": [42, 43, 44],
+  "feature_sets": ["PWR", "PWR+WX"],
+  "target": "CSI clipped [0,1.3]",
+  "fallback": "climatology when env<0.05",
+  "early_stopping_validation": "val without March 2022, RMSE on CSI",
+  "lightgbm": {"objective":"regression_l2","learning_rate":0.05,"num_leaves":31,"min_data_in_leaf":200,"feature_fraction":0.8,"bagging_fraction":0.8,"bagging_freq":1,"n_estimators":2000,"early_stopping_rounds":50},
+  "bootstrap": {"n":1000,"seed":42,"unit":"day"},
+  "test_after_2023-10-12_note": "irradiance is missing there for PWR+WX",
+  "outputs": ["f3_predictions.csv","f3_metrics.csv","f3_bootstrap.csv","f3_wx_vs_pwr_bootstrap.csv","f3_feature_importance_pwrwx.csv"]
+}

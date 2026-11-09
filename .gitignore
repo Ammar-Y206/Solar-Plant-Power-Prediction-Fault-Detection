@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Generated notebook and model outputs
+*_executed.ipynb
+results/
+figures/
+*.joblib
+
+# Local/editor/system files
+.env
+.DS_Store
+.vscode/
+.idea/
+
+# Archives and temporary files
+*.zip
+*.rar
+*.7z
+*.tmp

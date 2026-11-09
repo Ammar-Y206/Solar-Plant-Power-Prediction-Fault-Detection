@@ -1,0 +1,21 @@
+{
+  "forecast_protocol_ASSUMPTION": {
+    "note": "Default protocol proposed during preprocessing; change it deliberately before feature engineering.",
+    "forecast_origin": "every day at 00:00 UTC",
+    "horizons_rows": "1..192 after the origin (96 = 24h, 192 = 48h; report both)",
+    "known_at_origin": [
+      "plant and array history up to the origin",
+      "observed weather up to the origin",
+      "deterministic calendar and solar geometry"
+    ],
+    "not_known_at_origin": [
+      "any weather value inside the forecast window (the dataset has no weather forecasts)"
+    ]
+  },
+  "columns": {
+    "targets": "history only: lags >= horizon",
+    "features_weather": "observed, not forecast: lag by >= horizon, or use declared weather scenarios",
+    "arrays": "same-step outcomes: forbidden as forecasting features (lags only)",
+    "data_quality_flags": "never a model feature; use for masking/evaluation only (is_night/solar_elev_deg are deterministic and may be recomputed as features)"
+  }
+}

@@ -1,0 +1,9 @@
+Samsung SIC Graduation Project - organized GitHub package
+
+projects/anomaly-detection  - solar plant anomaly detection and deployment wrapper
+projects/forecasting        - F2/F3/F4 forecasting training pipeline
+
+Removed from the original package:
+- nested ZIP archives (their contents were extracted into the folders above)
+- duplicated phase_a_data_prep.ipynb and phase_b_training.ipynb at the project root
+- temporary/system files (none were found)

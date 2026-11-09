@@ -1,0 +1,158 @@
+{
+  "bounds": {
+    "test": {
+      "end": "2023-12-31 22:00:00+00:00",
+      "rows": 35033,
+      "start": "2023-01-01 00:00:00+00:00"
+    },
+    "train": {
+      "end": "2021-12-31 23:45:00+00:00",
+      "rows": 210439,
+      "start": "2015-12-31 22:15:00+00:00"
+    },
+    "val": {
+      "end": "2022-12-31 23:45:00+00:00",
+      "rows": 35040,
+      "start": "2022-01-01 00:00:00+00:00"
+    }
+  },
+  "horizon_rows": {
+    "24h": 96,
+    "48h": 192
+  },
+  "how_to_use": "val_*/test_* files start with warm-up rows (is_warmup=1): use them only to build lags/rolling features, never for training or scoring. Drop forecast origins flagged in_purge_zone when building training samples.",
+  "known_data_issues_by_split": {
+    "test": [
+      "irradiance_offset: 2023-01-01 .. 2023-10-11",
+      "irradiance_sensor_fault: 2023-10-12 .. 2023-12-31"
+    ],
+    "train": [
+      "weather_all_missing: 2016-04-07 .. 2016-04-09",
+      "weather_all_missing: 2016-05-25 .. 2016-05-27",
+      "weather_all_missing: 2018-05-03 .. 2018-05-04",
+      "weather_all_missing: 2019-06-04 .. 2019-06-05",
+      "weather_all_missing: 2019-11-13 .. 2019-12-01",
+      "irradiance_sensor_fault: 2020-05-06 .. 2020-05-06",
+      "irradiance_sensor_fault: 2021-12-04 .. 2021-12-31"
+    ],
+    "val": [
+      "irradiance_sensor_fault: 2022-01-01 .. 2022-02-22",
+      "weather_all_missing: 2022-03-03 .. 2022-03-22",
+      "module_temp_stuck: 2022-03-22 .. 2022-03-23",
+      "temp_sensor_episode: 2022-03-22 .. 2022-03-25",
+      "irradiance_offset: 2022-08-21 .. 2022-12-31"
+    ]
+  },
+  "months_coverage_rows_athens_time": {
+    "test": {
+      "1": 2969,
+      "2": 2688,
+      "3": 2972,
+      "4": 2880,
+      "5": 2976,
+      "6": 2880,
+      "7": 2976,
+      "8": 2976,
+      "9": 2880,
+      "10": 2980,
+      "11": 2880,
+      "12": 2976
+    },
+    "train": {
+      "1": 17863,
+      "2": 16320,
+      "3": 17832,
+      "4": 17280,
+      "5": 17856,
+      "6": 17280,
+      "7": 17856,
+      "8": 17856,
+      "9": 17280,
+      "10": 17880,
+      "11": 17280,
+      "12": 17856
+    },
+    "val": {
+      "1": 2976,
+      "2": 2688,
+      "3": 2972,
+      "4": 2880,
+      "5": 2976,
+      "6": 2880,
+      "7": 2976,
+      "8": 2976,
+      "9": 2880,
+      "10": 2980,
+      "11": 2880,
+      "12": 2976
+    }
+  },
+  "optional_rolling_origin_cv": [
+    {
+      "fold": 1,
+      "train_first_origin": "2015-12-31 22:15:00+00:00",
+      "train_last_origin": "2020-12-29 23:45:00+00:00",
+      "val_end": "2021-03-31 23:45:00+00:00",
+      "val_start": "2021-01-01 00:00:00+00:00"
+    },
+    {
+      "fold": 2,
+      "train_first_origin": "2015-12-31 22:15:00+00:00",
+      "train_last_origin": "2021-03-29 23:45:00+00:00",
+      "val_end": "2021-06-30 23:45:00+00:00",
+      "val_start": "2021-04-01 00:00:00+00:00"
+    },
+    {
+      "fold": 3,
+      "train_first_origin": "2015-12-31 22:15:00+00:00",
+      "train_last_origin": "2021-06-28 23:45:00+00:00",
+      "val_end": "2021-09-30 23:45:00+00:00",
+      "val_start": "2021-07-01 00:00:00+00:00"
+    },
+    {
+      "fold": 4,
+      "train_first_origin": "2015-12-31 22:15:00+00:00",
+      "train_last_origin": "2021-09-28 23:45:00+00:00",
+      "val_end": "2021-12-31 23:45:00+00:00",
+      "val_start": "2021-10-01 00:00:00+00:00"
+    },
+    {
+      "fold": 5,
+      "train_first_origin": "2015-12-31 22:15:00+00:00",
+      "train_last_origin": "2021-12-29 23:45:00+00:00",
+      "val_end": "2022-03-31 23:45:00+00:00",
+      "val_start": "2022-01-01 00:00:00+00:00"
+    },
+    {
+      "fold": 6,
+      "train_first_origin": "2015-12-31 22:15:00+00:00",
+      "train_last_origin": "2022-03-29 23:45:00+00:00",
+      "val_end": "2022-06-30 23:45:00+00:00",
+      "val_start": "2022-04-01 00:00:00+00:00"
+    },
+    {
+      "fold": 7,
+      "train_first_origin": "2015-12-31 22:15:00+00:00",
+      "train_last_origin": "2022-06-28 23:45:00+00:00",
+      "val_end": "2022-09-30 23:45:00+00:00",
+      "val_start": "2022-07-01 00:00:00+00:00"
+    },
+    {
+      "fold": 8,
+      "train_first_origin": "2015-12-31 22:15:00+00:00",
+      "train_last_origin": "2022-09-28 23:45:00+00:00",
+      "val_end": "2022-12-31 23:45:00+00:00",
+      "val_start": "2022-10-01 00:00:00+00:00"
+    }
+  ],
+  "purge_rows": 192,
+  "rows_in_files_including_warmup": {
+    "test": 36377,
+    "train": 210439,
+    "val": 36384
+  },
+  "rows_per_day": 96,
+  "step_minutes": 15,
+  "timezone": "UTC",
+  "warmup_rows": 1344
+}

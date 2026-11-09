@@ -1,0 +1,32 @@
+{
+  "task": "F2 env and CSI baselines",
+  "protocol": "same F1 evaluation set and scenarios",
+  "env": {
+    "source": "train only",
+    "quantile": 0.95,
+    "group": "(circular doy, UTC hour-minute)",
+    "window": "|doy-doy(t)|<=15 circular over 365",
+    "rows": "is_day=1, plant_pu non-NaN, excluding \u00b14 rows around plant_zero_daytime"
+  },
+  "csi": "plant_pu/env; defined only env>=0.05; prediction clip [0,1.2]; fallback climatology",
+  "baselines_A": [
+    "climatology",
+    "mean_last_7d",
+    "csi_lastk_1d",
+    "csi_lastk_3d",
+    "csi_lastk_7d"
+  ],
+  "baselines_B": [
+    "climatology",
+    "mean_last_7d",
+    "csi_persistence",
+    "csi_mean_2h"
+  ],
+  "subsets": [
+    "all",
+    "val_no_march_2022",
+    "test_before_2023-10-12",
+    "test_after_2023-10-12"
+  ],
+  "monthly": "all fixed candidates and climatology; no post-result baseline selection"
+}

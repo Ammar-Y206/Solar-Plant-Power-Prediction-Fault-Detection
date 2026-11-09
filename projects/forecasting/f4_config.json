@@ -1,0 +1,29 @@
+{
+  "task": "F4 24-48h day-ahead",
+  "horizons": [
+    97,
+    192
+  ],
+  "families": [
+    "LightGBM",
+    "Ridge",
+    "MLP"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "baseline_anchor": {
+    "val_no_march_2022": 0.14419370061026848,
+    "test_before_2023-10-12": 0.1474565203608411,
+    "test_after_2023-10-12": 0.16742466923867283
+  },
+  "outputs": [
+    "f4_results.csv",
+    "f4_tuning_log.csv",
+    "f4_predictions.csv.gz",
+    "f4_importance.csv",
+    "f4_before_after.csv"
+  ]
+}

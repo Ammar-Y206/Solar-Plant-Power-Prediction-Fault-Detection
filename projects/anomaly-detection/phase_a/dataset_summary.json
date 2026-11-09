@@ -1,0 +1,332 @@
+{
+  "environment": {
+    "python": "3.12.3",
+    "pandas": "3.1.0",
+    "numpy": "2.5.4",
+    "seed": 42
+  },
+  "features": [
+    "irr_wm2",
+    "temp_c",
+    "mod_temp_c",
+    "solar_elev_deg",
+    "hour_sin",
+    "hour_cos",
+    "doy_sin",
+    "doy_cos"
+  ],
+  "target": "plant_pu",
+  "output_columns": [
+    "irr_wm2",
+    "temp_c",
+    "mod_temp_c",
+    "solar_elev_deg",
+    "hour_sin",
+    "hour_cos",
+    "doy_sin",
+    "doy_cos",
+    "plant_pu",
+    "scoreable",
+    "clean",
+    "in_event_margin",
+    "split"
+  ],
+  "rows_after_warmup_removal": {
+    "train": 210439,
+    "val": 35040,
+    "test": 35033
+  },
+  "coverage_table": [
+    {
+      "split": "train",
+      "rows": 210439,
+      "is_day rows": 88943,
+      "scoreable rows": 86985,
+      "coverage %": 97.8
+    },
+    {
+      "split": "val",
+      "rows": 35040,
+      "is_day rows": 14815,
+      "scoreable rows": 12214,
+      "coverage %": 82.44
+    },
+    {
+      "split": "test",
+      "rows": 35033,
+      "is_day rows": 14812,
+      "scoreable rows": 12180,
+      "coverage %": 82.23
+    },
+    {
+      "split": "test (< 2023-10-12)",
+      "rows": 27264,
+      "is_day rows": 12295,
+      "scoreable rows": 12180,
+      "coverage %": 99.06
+    },
+    {
+      "split": "test (>= 2023-10-12)",
+      "rows": 7769,
+      "is_day rows": 2517,
+      "scoreable rows": 0,
+      "coverage %": 0.0
+    }
+  ],
+  "clean_table": [
+    {
+      "split": "train",
+      "scoreable": 86985,
+      "in_event_margin rows": 3653,
+      "clean rows": 83135
+    },
+    {
+      "split": "val",
+      "scoreable": 12214,
+      "in_event_margin rows": 121,
+      "clean rows": 12146
+    },
+    {
+      "split": "test",
+      "scoreable": 12180,
+      "in_event_margin rows": 3356,
+      "clean rows": 8857
+    }
+  ],
+  "events_used_for_margins": {
+    "array_outage": 271,
+    "plant_zero_daytime": 49
+  },
+  "margin_rows_each_side": 4,
+  "scaler_fit_rows": 83135,
+  "test_days": {
+    "total": 365,
+    "no_real_event": 279,
+    "coverage_ge_80": 280,
+    "eligible": 199
+  },
+  "eligible_days_by_duration": [
+    {
+      "duration_h": 1,
+      "eligible days (total)": 199,
+      "days that fit the event": 199
+    },
+    {
+      "duration_h": 3,
+      "eligible days (total)": 199,
+      "days that fit the event": 199
+    },
+    {
+      "duration_h": 6,
+      "eligible days (total)": 199,
+      "days that fit the event": 199
+    }
+  ],
+  "injection_cells": [
+    {
+      "type": "drop",
+      "sev": 0.1,
+      "duration_h": 1,
+      "events": 25
+    },
+    {
+      "type": "drop",
+      "sev": 0.1,
+      "duration_h": 3,
+      "events": 25
+    },
+    {
+      "type": "drop",
+      "sev": 0.1,
+      "duration_h": 6,
+      "events": 25
+    },
+    {
+      "type": "drop",
+      "sev": 0.2,
+      "duration_h": 1,
+      "events": 25
+    },
+    {
+      "type": "drop",
+      "sev": 0.2,
+      "duration_h": 3,
+      "events": 25
+    },
+    {
+      "type": "drop",
+      "sev": 0.2,
+      "duration_h": 6,
+      "events": 25
+    },
+    {
+      "type": "drop",
+      "sev": 0.4,
+      "duration_h": 1,
+      "events": 25
+    },
+    {
+      "type": "drop",
+      "sev": 0.4,
+      "duration_h": 3,
+      "events": 25
+    },
+    {
+      "type": "drop",
+      "sev": 0.4,
+      "duration_h": 6,
+      "events": 25
+    },
+    {
+      "type": "drop",
+      "sev": 1.0,
+      "duration_h": 1,
+      "events": 25
+    },
+    {
+      "type": "drop",
+      "sev": 1.0,
+      "duration_h": 3,
+      "events": 25
+    },
+    {
+      "type": "drop",
+      "sev": 1.0,
+      "duration_h": 6,
+      "events": 25
+    },
+    {
+      "type": "stuck",
+      "sev": null,
+      "duration_h": 1,
+      "events": 25
+    },
+    {
+      "type": "stuck",
+      "sev": null,
+      "duration_h": 3,
+      "events": 25
+    },
+    {
+      "type": "stuck",
+      "sev": null,
+      "duration_h": 6,
+      "events": 25
+    }
+  ],
+  "injection_events_total": 375,
+  "injection_change_size_pu": [
+    {
+      "type": "drop",
+      "sev": 0.1,
+      "duration_h": 1,
+      "count": 25,
+      "median": 0.0408
+    },
+    {
+      "type": "drop",
+      "sev": 0.1,
+      "duration_h": 3,
+      "count": 25,
+      "median": 0.0566
+    },
+    {
+      "type": "drop",
+      "sev": 0.1,
+      "duration_h": 6,
+      "count": 25,
+      "median": 0.0429
+    },
+    {
+      "type": "drop",
+      "sev": 0.2,
+      "duration_h": 1,
+      "count": 25,
+      "median": 0.0867
+    },
+    {
+      "type": "drop",
+      "sev": 0.2,
+      "duration_h": 3,
+      "count": 25,
+      "median": 0.1087
+    },
+    {
+      "type": "drop",
+      "sev": 0.2,
+      "duration_h": 6,
+      "count": 25,
+      "median": 0.1008
+    },
+    {
+      "type": "drop",
+      "sev": 0.4,
+      "duration_h": 1,
+      "count": 25,
+      "median": 0.2163
+    },
+    {
+      "type": "drop",
+      "sev": 0.4,
+      "duration_h": 3,
+      "count": 25,
+      "median": 0.1897
+    },
+    {
+      "type": "drop",
+      "sev": 0.4,
+      "duration_h": 6,
+      "count": 25,
+      "median": 0.2077
+    },
+    {
+      "type": "drop",
+      "sev": 1.0,
+      "duration_h": 1,
+      "count": 25,
+      "median": 0.4768
+    },
+    {
+      "type": "drop",
+      "sev": 1.0,
+      "duration_h": 3,
+      "count": 25,
+      "median": 0.5324
+    },
+    {
+      "type": "drop",
+      "sev": 1.0,
+      "duration_h": 6,
+      "count": 25,
+      "median": 0.5702
+    },
+    {
+      "type": "stuck",
+      "sev": null,
+      "duration_h": 1,
+      "count": 25,
+      "median": 0.0632
+    },
+    {
+      "type": "stuck",
+      "sev": null,
+      "duration_h": 3,
+      "count": 25,
+      "median": 0.1491
+    },
+    {
+      "type": "stuck",
+      "sev": null,
+      "duration_h": 6,
+      "count": 25,
+      "median": 0.1782
+    }
+  ],
+  "notes": [
+    "Irradiance-offset correction period (2022-08-21 .. 2023-10-11) stays inside clean; clean rows inside it: {\"train\": 0, \"val\": 4659, \"test\": 8857}",
+    "in_event_margin marks every row inside plant_zero_daytime/array_outage events expanded by 4 rows on each side (event rows included).",
+    "hour/doy features use UTC; doy period 365.25 days.",
+    "Injection start inside a day is random among feasible positions (default_rng([42, cell_index])); severity is blank for stuck.",
+    "Scaler uses clean train rows only; scaler_params.json from the preprocessing step is not used."
+  ]
+}
